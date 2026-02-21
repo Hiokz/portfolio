@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            navbar.style.boxShadow = '0 10px 30px -10px rgba(2,12,27,0.7)';
+            navbar.classList.add('scrolled');
         } else {
-            navbar.style.boxShadow = 'none';
+            navbar.classList.remove('scrolled');
         }
     });
 
