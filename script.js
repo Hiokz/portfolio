@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 formStatus.textContent = 'Oops! There was a problem submitting your form.';
                 formStatus.style.color = '#ff6b6b';
             } finally {
-                submitBtn.textContent = 'Say Hello';
+                submitBtn.textContent = 'Send Message';
                 submitBtn.disabled = false;
 
                 setTimeout(() => {
