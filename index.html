@@ -17,6 +17,9 @@
 </head>
 
 <body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">S<span>.</span></a>
@@ -26,8 +29,13 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact" class="btn btn-primary">Let's Talk</a></li>
             </ul>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
         </div>
     </nav>
@@ -37,14 +45,18 @@
             <div class="hero-content hidden">
                 <p class="hero-subtitle">Hi, my name is</p>
                 <h1 class="hero-title">Selamat.</h1>
-                <h2 class="hero-title-secondary">I build intelligent things for the web.</h2>
+                <h2 class="hero-title-secondary"><span id="typewriter"></span><span class="cursor-blink">|</span></h2>
                 <p class="hero-description">
                     I'm a prompt engineer, vibe coder, and software engineer specializing in building exceptional
                     AI-driven digital experiences.
                 </p>
                 <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary">Check out my work</a>
-                    <a href="#about" class="btn btn-outline">More about me</a>
+                    <a href="#projects" class="btn btn-primary magnetic-btn"><span class="text">Check out my work</span>
+                        <div class="magnet-area"></div>
+                    </a>
+                    <a href="#about" class="btn btn-outline magnetic-btn"><span class="text">More about me</span>
+                        <div class="magnet-area"></div>
+                    </a>
                 </div>
             </div>
             <div class="hero-image hidden">

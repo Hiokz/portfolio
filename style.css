@@ -1,6 +1,6 @@
 /* Custom Properties / Tokens */
 :root {
-    /* Colors */
+    /* Dark Theme Colors (Default) */
     --bg-main: #0a192f;
     --bg-light: #112240;
     --bg-lighter: #233554;
@@ -15,6 +15,17 @@
     /* Variables */
     --nav-height: 80px;
     --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* Light Theme Colors */
+body.light-theme {
+    --bg-main: #f8f9fa;
+    --bg-light: #ffffff;
+    --bg-lighter: #e9ecef;
+    --text-main: #212529;
+    --text-muted: #495057;
+    --accent: #0066cc;
+    --accent-tint: rgba(0, 102, 204, 0.1);
 }
 
 /* Reset & Base Styles */
@@ -34,6 +45,50 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
+    cursor: none;
+    /* Hide default cursor for standard elements */
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Custom Cursor */
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent);
+}
+
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--accent);
+    opacity: 0.5;
+}
+
+.cursor-dot,
+.cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 10000;
+    pointer-events: none;
+    transition: width 0.2s, height 0.2s, opacity 0.2s;
+}
+
+.cursor-hover .cursor-outline {
+    width: 60px;
+    height: 60px;
+    background-color: var(--accent-tint);
+    border-color: transparent;
+    opacity: 1;
+}
+
+a,
+button,
+input,
+textarea {
+    cursor: none;
 }
 
 /* Typography */
@@ -101,6 +156,49 @@ ul {
     color: var(--bg-main);
     background-color: var(--text-main);
     transform: translateY(-3px);
+}
+
+/* Magnetic Button */
+.magnetic-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.magnetic-btn .text {
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cursor-blink {
+    display: inline-block;
+    color: var(--accent);
+    animation: blink 1s step-end infinite;
+    font-weight: 300;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.magnetic-btn .magnet-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 
 /* Section Common */
@@ -193,10 +291,33 @@ section {
     color: var(--accent);
 }
 
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-main);
+    font-size: 20px;
+    cursor: none;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    color: var(--accent);
+    transform: scale(1.1);
+}
+
 .hamburger {
     display: none;
     font-size: 24px;
-    cursor: pointer;
+    cursor: none;
     color: var(--accent);
 }
 
@@ -305,14 +426,18 @@ section {
     background: var(--bg-light);
     border-radius: 8px;
     overflow: hidden;
-    transition: var(--transition);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease, border-color 0.4s ease;
     border: 1px solid transparent;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    will-change: transform;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
     border-color: var(--accent);
     box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.7);
+    /* JS Tilt will override transform, but giving a fallback */
+    transform: translateY(-5px);
 }
 
 .project-card:hover .project-img img {
