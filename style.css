@@ -4,6 +4,7 @@
     --bg-main: #0a192f;
     --bg-light: #112240;
     --bg-lighter: #233554;
+    --nav-bg: rgba(10, 25, 47, 0.85);
     --text-main: #ccd6f6;
     --text-muted: #8892b0;
     --accent: #64ffda;
@@ -22,6 +23,7 @@ body.light-theme {
     --bg-main: #f8f9fa;
     --bg-light: #ffffff;
     --bg-lighter: #e9ecef;
+    --nav-bg: rgba(248, 249, 250, 0.85);
     --text-main: #212529;
     --text-muted: #495057;
     --accent: #0066cc;
@@ -251,7 +253,7 @@ section {
     top: 0;
     width: 100%;
     height: var(--nav-height);
-    background: rgba(10, 25, 47, 0.85);
+    background: var(--nav-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     z-index: 1000;
