@@ -150,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeWriterEl) {
         const roles = [
             "Software Engineer.",
+            "Game Developer.",
             "App Developer.",
             "Automation Expert.",
             "E-Commerce Founder.",
