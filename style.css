@@ -429,6 +429,13 @@ body.light-theme .navbar.scrolled {
     color: var(--text-main);
 }
 
+.skill-tools {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
 /* Projects Section */
 .projects-grid {
     display: grid;
