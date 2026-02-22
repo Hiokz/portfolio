@@ -145,25 +145,50 @@ document.addEventListener('DOMContentLoaded', () => {
         el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
     });
 
-    // --- Typing Animation ---
+    // --- Typing Animation Loop ---
     const typeWriterEl = document.getElementById('typewriter');
     if (typeWriterEl) {
-        const textToType = "I build intelligent things for the web.";
-        let i = 0;
+        const roles = [
+            "Software Engineer.",
+            "App Developer.",
+            "Graphic Designer.",
+            "Video Editor.",
+            "Content Creator."
+        ];
 
-        // Clear it first
-        typeWriterEl.textContent = '';
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
 
         function typeWriter() {
-            if (i < textToType.length) {
-                typeWriterEl.textContent += textToType.charAt(i);
-                i++;
-                // Randomize typing speed slightly for realism
-                setTimeout(typeWriter, Math.random() * 50 + 50);
+            const currentRole = roles[roleIndex];
+
+            if (isDeleting) {
+                typeWriterEl.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typeWriterEl.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
             }
+
+            // Faster when deleting, slightly random when typing
+            let typeSpeed = isDeleting ? 40 : Math.random() * 50 + 50;
+
+            if (!isDeleting && charIndex === currentRole.length) {
+                // Pause at the end of the full phrase
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                // Move to next word when completely deleted
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                typeSpeed = 500; // Small pause before new word starts
+            }
+
+            setTimeout(typeWriter, typeSpeed);
         }
 
-        // Start typing after a short delay
+        // Start typing loop after slightly longer delay
         setTimeout(typeWriter, 1000);
     }
 
