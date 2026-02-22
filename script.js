@@ -151,6 +151,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const roles = [
             "Software Engineer.",
             "App Developer.",
+            "Automation Expert.",
+            "E-Commerce Founder.",
+            "SaaS Creator.",
+            "Investor.",
             "Graphic Designer.",
             "Video Editor.",
             "Content Creator."
