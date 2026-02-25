@@ -122,6 +122,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
+    // --- Skills Filter Logic ---
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const skillCards = document.querySelectorAll('.skill-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            skillCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+
+                if (filterValue === 'all' || filterValue === category) {
+                    card.style.display = 'flex';
+                    // Optional: add a tiny animation reflow here if desired
+                    card.style.animation = 'none';
+                    card.offsetHeight; /* trigger reflow */
+                    card.style.animation = null;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
     // --- Typing Animation Loop ---
     const typeWriterEl = document.getElementById('typewriter');
     if (typeWriterEl) {

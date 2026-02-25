@@ -94,132 +94,129 @@
         <div class="container">
             <h2 class="section-title hidden">My Technical Toolkit</h2>
 
-            <h3 class="hidden" style="margin-bottom: 20px; font-size: 24px; color: var(--text-main);">
-                Frontend & UI</h3>
-            <div class="skills-grid">
-                <div class="skill-card hidden">
+            <!-- Skill Filter Buttons -->
+            <div class="skills-filters hidden">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="frontend">Frontend & UI</button>
+                <button class="filter-btn" data-filter="backend">Backend & Data</button>
+                <button class="filter-btn" data-filter="languages">Languages & Tools</button>
+                <button class="filter-btn" data-filter="creative">Freelance & Creative</button>
+                <button class="filter-btn" data-filter="business">Business</button>
+            </div>
+
+            <!-- Single Grid for All Skills -->
+            <div class="skills-grid" id="skills-grid">
+                <!-- Frontend -->
+                <div class="skill-card hidden" data-category="frontend">
                     <i class="fab fa-react"></i>
                     <h3>React</h3>
                 </div>
-                <!-- FontAwesome v6 free does not have a Flutter icon, so using mobile-alt as generic framework representation -->
-                <div class="skill-card hidden">
+                <div class="skill-card hidden" data-category="frontend">
                     <i class="fas fa-mobile-alt"></i>
                     <h3>Flutter</h3>
                 </div>
-                <div class="skill-card hidden">
+                <div class="skill-card hidden" data-category="frontend">
                     <i class="fab fa-html5"></i>
                     <h3>HTML5</h3>
                 </div>
-                <div class="skill-card hidden">
+                <div class="skill-card hidden" data-category="frontend">
                     <i class="fab fa-css3-alt"></i>
                     <h3>CSS3</h3>
                 </div>
-            </div>
 
-            <h3 class="hidden" style="margin-top: 40px; margin-bottom: 20px; font-size: 24px; color: var(--text-main);">
-                Backend & Data</h3>
-            <div class="skills-grid">
-                <div class="skill-card hidden">
+                <!-- Backend -->
+                <div class="skill-card hidden" data-category="backend">
                     <i class="fab fa-node-js"></i>
                     <h3>Node.js</h3>
                 </div>
-                <div class="skill-card hidden">
+                <div class="skill-card hidden" data-category="backend">
                     <i class="fas fa-database"></i>
                     <h3>SQL</h3>
                 </div>
-                <div class="skill-card hidden">
+                <div class="skill-card hidden" data-category="backend">
                     <i class="fab fa-python"></i>
                     <h3>Python</h3>
                 </div>
-            </div>
 
-            <h3 class="hidden" style="margin-top: 40px; margin-bottom: 20px; font-size: 24px; color: var(--text-main);">
-                Languages & Tools</h3>
-            <div class="skills-grid">
-                <div class="skill-card hidden">
+                <!-- Languages & Tools -->
+                <div class="skill-card hidden" data-category="languages">
                     <i class="fab fa-js"></i>
                     <h3>JavaScript</h3>
                 </div>
-                <div class="skill-card hidden">
+                <div class="skill-card hidden" data-category="languages">
                     <i class="fas fa-file-code"></i>
                     <h3>TypeScript</h3>
                 </div>
-                <div class="skill-card hidden">
+                <div class="skill-card hidden" data-category="languages">
                     <i class="fas fa-c"></i>
                     <h3>C++</h3>
                 </div>
-                <div class="skill-card hidden">
+                <div class="skill-card hidden" data-category="languages">
                     <i class="fas fa-hashtag"></i>
                     <h3>C#</h3>
                 </div>
-                <div class="skill-card hidden">
+                <div class="skill-card hidden" data-category="languages">
                     <i class="fab fa-java"></i>
                     <h3>Java</h3>
                 </div>
-                <div class="skill-card hidden">
+                <div class="skill-card hidden" data-category="languages">
                     <i class="fab fa-swift"></i>
                     <h3>Swift</h3>
                 </div>
-                <div class="skill-card hidden">
+                <div class="skill-card hidden" data-category="languages">
                     <i class="fab fa-git-alt"></i>
                     <h3>Git</h3>
                 </div>
-            </div>
 
-            <h3 class="hidden" style="margin-top: 40px; margin-bottom: 20px; font-size: 24px; color: var(--text-main);">
-                Freelance & Creative</h3>
-            <div class="skills-grid">
-                <div class="skill-card hidden">
+                <!-- Freelance & Creative -->
+                <div class="skill-card hidden" data-category="creative">
                     <i class="fas fa-pen-nib"></i>
                     <h3>Graphic Design</h3>
                     <p class="skill-tools">Adobe Photoshop, Illustrator, Figma, Canva</p>
                 </div>
-                <div class="skill-card hidden">
+                <div class="skill-card hidden" data-category="creative">
                     <i class="fas fa-video"></i>
                     <h3>Video Editing</h3>
                     <p class="skill-tools">CapCut, Adobe Premiere Pro</p>
                 </div>
-                <div class="skill-card hidden">
+                <div class="skill-card hidden" data-category="creative">
                     <i class="fas fa-laptop-code"></i>
                     <h3>Web & App Dev</h3>
                     <p class="skill-tools">Supabase, Unity, Figma, Vercel, Github</p>
                 </div>
-                <div class="skill-card hidden">
+                <div class="skill-card hidden" data-category="creative">
                     <i class="fas fa-cubes"></i>
-                    <h3>Web & App Dev (Low-Code)</h3>
+                    <h3>Low-Code</h3>
                     <p class="skill-tools">Squarespace, Wix, Base44, Webflow, Glide, Replit, WordPress</p>
                 </div>
-                <div class="skill-card hidden">
+                <div class="skill-card hidden" data-category="creative">
                     <i class="fab fa-youtube"></i>
                     <h3>Content Creation</h3>
                     <p class="skill-tools">YouTube Analytics, Scriptwriting, SEO, OBS Studio, TikTok</p>
                 </div>
-                <div class="skill-card hidden">
+                <div class="skill-card hidden" data-category="creative">
                     <i class="fas fa-gamepad"></i>
                     <h3>Game Dev</h3>
                     <p class="skill-tools">Unity, Unreal Engine, Godot, Blender, Android Studio, Github</p>
                 </div>
-            </div>
 
-            <h3 class="hidden" style="margin-top: 40px; margin-bottom: 20px; font-size: 24px; color: var(--text-main);">
-                Business & Entrepreneurship</h3>
-            <div class="skills-grid">
-                <div class="skill-card hidden">
+                <!-- Business & Entrepreneurship -->
+                <div class="skill-card hidden" data-category="business">
                     <i class="fas fa-cart-shopping"></i>
                     <h3>Dropshipping & E-comm</h3>
                     <p class="skill-tools">Shopify, Canva, Stripe, Google Analytics</p>
                 </div>
-                <div class="skill-card hidden">
+                <div class="skill-card hidden" data-category="business">
                     <i class="fas fa-chart-line"></i>
                     <h3>Investing</h3>
                     <p class="skill-tools">TradingView, Excel, MT4/5</p>
                 </div>
-                <div class="skill-card hidden">
+                <div class="skill-card hidden" data-category="business">
                     <i class="fas fa-robot"></i>
                     <h3>Automation</h3>
                     <p class="skill-tools">Zapier, n8n</p>
                 </div>
-                <div class="skill-card hidden">
+                <div class="skill-card hidden" data-category="business">
                     <i class="fas fa-cloud"></i>
                     <h3>SaaS & Digital Products</h3>
                     <p class="skill-tools">Product Strategy, Monetization, MRR, User Acquisition</p>
