@@ -138,6 +138,9 @@ document.addEventListener('DOMContentLoaded', () => {
             skillCards.forEach(card => {
                 const category = card.getAttribute('data-category');
 
+                // Reset flip state when filtering
+                card.classList.remove('flipped');
+
                 if (filterValue === 'all' || filterValue === category) {
                     card.style.display = 'block'; // Changed from flex since the card itself is no longer flex
                     // Optional: add a tiny animation reflow here if desired
