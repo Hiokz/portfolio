@@ -360,6 +360,39 @@ body.light-theme .navbar.scrolled {
 }
 
 /* Skills Section */
+/* Skills Filter Buttons */
+.skills-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--text-main);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn:hover {
+    background: var(--accent-tint);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.filter-btn.active {
+    background: var(--accent);
+    color: var(--bg-main);
+    font-weight: 600;
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
