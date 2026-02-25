@@ -121,29 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- Custom Cursor ---
-    const cursorDot = document.querySelector('.cursor-dot');
-    const cursorOutline = document.querySelector('.cursor-outline');
-
-    window.addEventListener('mousemove', (e) => {
-        const posX = e.clientX;
-        const posY = e.clientY;
-
-        // Dot follows instantly
-        cursorDot.style.left = `${posX}px`;
-        cursorDot.style.top = `${posY}px`;
-
-        // Outline follows with slight delay using CSS transition
-        cursorOutline.style.left = `${posX}px`;
-        cursorOutline.style.top = `${posY}px`;
-    });
-
-    // Add hover state to cursor for clickable elements
-    const clickables = document.querySelectorAll('a, button, input, textarea, .project-card, .skill-card');
-    clickables.forEach(el => {
-        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-    });
 
     // --- Typing Animation Loop ---
     const typeWriterEl = document.getElementById('typewriter');
