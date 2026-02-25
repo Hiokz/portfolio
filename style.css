@@ -305,12 +305,17 @@ body.light-theme .navbar.scrolled {
     max-width: 800px;
 }
 
-.hero-subtitle {
+.hero-tagline {
     color: var(--accent);
     margin-bottom: 20px;
     font-family: var(--font-sans);
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 18px;
+    /* Slightly larger for emphasis */
+    font-weight: 500;
+    letter-spacing: 2px;
+    /* Increased letter spacing for a sleek look */
+    text-transform: uppercase;
+    /* Makes it look more like a distinct label/headline */
 }
 
 .hero-title {
