@@ -406,6 +406,10 @@ body.light-theme .navbar.scrolled {
     border-radius: 8px;
     text-align: center;
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .skill-card:hover {
