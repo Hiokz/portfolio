@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 3D Skill Card Flip Logic & Descriptions ---
     const skillDescriptions = {
         "HTML5": "The semantic backbone of the modern web. I use HTML5 to structure accessible, SEO-friendly content.",
-        "CSS3": "Styling the web with precision. I leverage CSS3 for responsive layouts, animations, and modern glassmorphic designs.",
+        "CSS3": "Precise web styling. I leverage CSS3 for responsive layouts, animations, and glassmorphic designs.",
         "Node.js": "My go-to runtime for building scalable, high-performance backends and real-time APIs.",
         "SQL": "Writing optimized queries and designing robust relational schemas for complex data storage.",
         "Python": "Used for data analysis, algorithmic scripts, automation, and powerful backend logic.",
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Premiere Pro": "Professional video editing, color grading, and complex timeline-based storytelling.",
         "CapCut": "Rapid editing and effect integration for viral, short-form vertical content.",
         "Unity": "Building interactive 2D/3D games and complex real-time simulations.",
-        "Unreal Engine": "Crafting high-fidelity, photorealistic interactive environments and cinematic experiences.",
+        "Unreal Engine": "Crafting high-fidelity, photorealistic interactive 3D environments.",
         "Blender": "3D modeling, texturing, and rendering physical assets for games and web.",
         "WordPress": "Deploying customizable, highly SEO-optimized content management systems.",
         "Webflow": "Visually developing custom, complex responsive websites with massive bespoke animations.",
