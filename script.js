@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const category = card.getAttribute('data-category');
 
                 if (filterValue === 'all' || filterValue === category) {
-                    card.style.display = 'flex';
+                    card.style.display = 'block'; // Changed from flex since the card itself is no longer flex
                     // Optional: add a tiny animation reflow here if desired
                     card.style.animation = 'none';
                     card.offsetHeight; /* trigger reflow */
@@ -148,6 +148,96 @@ document.addEventListener('DOMContentLoaded', () => {
                     card.style.display = 'none';
                 }
             });
+        });
+    });
+
+    // --- 3D Skill Card Flip Logic & Descriptions ---
+    const skillDescriptions = {
+        "HTML5": "The semantic backbone of the modern web. I use HTML5 to structure accessible, SEO-friendly content.",
+        "CSS3": "Styling the web with precision. I leverage CSS3 for responsive layouts, animations, and modern glassmorphic designs.",
+        "Node.js": "My go-to runtime for building scalable, high-performance backends and real-time APIs.",
+        "SQL": "Writing optimized queries and designing robust relational schemas for complex data storage.",
+        "Python": "Used for data analysis, algorithmic scripts, automation, and powerful backend logic.",
+        "JavaScript": "The engine of the web. I write clean, asynchronous ES6+ JS for dynamic frontends and solid logic.",
+        "TypeScript": "Adding strict static typing to JavaScript for maintainable, enterprise-level enterprise codebases.",
+        "C++": "My foundation in low-level memory management and high-performance algorithms.",
+        "C#": "Primary language for Unity game development and robust enterprise applications.",
+        "Java": "Object-oriented programming experience handling complex backend systems.",
+        "Swift": "Building sleek, native iOS experiences with smooth animations.",
+        "Git": "Essential version control for collaborative development and safe deployments.",
+
+        "Figma": "Where design happens. I create high-fidelity UI/UX mockups and interactive prototypes here.",
+        "Photoshop": "Deep photo manipulation, digital compositing, and raster graphic creation.",
+        "Illustrator": "Designing clean, scalable vector graphics, logos, and custom SVG assets.",
+        "Premiere Pro": "Professional video editing, color grading, and complex timeline-based storytelling.",
+        "CapCut": "Rapid editing and effect integration for viral, short-form vertical content.",
+        "Unity": "Building interactive 2D/3D games and complex real-time simulations.",
+        "Unreal Engine": "Crafting high-fidelity, photorealistic interactive environments and cinematic experiences.",
+        "Blender": "3D modeling, texturing, and rendering physical assets for games and web.",
+        "WordPress": "Deploying customizable, highly SEO-optimized content management systems.",
+        "Webflow": "Visually developing custom, complex responsive websites with massive bespoke animations.",
+        "OBS Studio": "Configuring scenes and routing audio/video for professional streaming and recording.",
+        "Canva": "Quick, templated asset creation for social media and marketing collateral.",
+        "Vercel": "My preferred platform for deploying lightning-fast frontend frameworks globally.",
+        "Supabase": "An open-source Firebase alternative providing a robust Postgres database, auth, and real-time subscriptions.",
+        "Squarespace": "Setting up elegant, reliable websites rapidly for clients who need no-code visual management.",
+        "Wix": "Deploying highly customized, visually rich, template-driven web experiences.",
+        "Replit": "Rapid prototyping and collaborative cloud coding directly in the browser.",
+        "Godot": "An open-source engine I use for lightweight, highly-optimized 2D game development.",
+        "Android Studio": "Developing, testing, and profiling native Android applications.",
+        "Glide": "Building powerful, data-driven mobile Progressive Web Apps directly from spreadsheets.",
+        "YouTube": "Deep understanding of the platform algorithm, audience retention, and thumbnail psychology.",
+        "TikTok": "Harnessing the viral algorithm to drive massive organic reach through short-form hooks.",
+        "SEO": "Optimizing keywords, metadata, and site architecture to rank high on search engines.",
+        "Scriptwriting": "Writing compelling, retention-optimized narratives that hook viewers and drive action.",
+        "Base44": "A modern framework for robust, secure data encoding and structured deployment.",
+
+        "Shopify": "Building high-converting, heavily customized eCommerce storefronts that scale.",
+        "Stripe": "Integrating secure, complex payment flows, subscriptions, and financial infrastructure.",
+        "Google Analytics": "Tracking user behavior, conversion funnels, and deep site metrics to inform decisions.",
+        "Excel": "Complex financial modeling, macro automation, and deep data manipulation.",
+        "TradingView": "Writing custom PineScript indicators and analyzing complex market structures.",
+        "MT4/5": "Algorithmic trading platforms where I deploy automated quantitative scripts.",
+        "Zapier": "Connecting disparate SaaS tools to automate boring manual workflows visually.",
+        "n8n": "Advanced, source-available node-based automation handling complex webhooks and data pipelines.",
+        "Product Strategy": "Defining vision, market-fit, and long-term roadmaps for digital products.",
+        "Monetization": "Designing high-conversion pricing structures and maximizing customer lifetime value.",
+        "MRR Growth": "Strategies focused on scaling Monthly Recurring Revenue sustainably without churn.",
+        "User Acquisition": "Driving targeted, profitable traffic through paid, organic, and lateral growth channels."
+    };
+
+    skillCards.forEach(card => {
+        // Find the text of the h3 inside the card to use as the dictionary key
+        const titleElement = card.querySelector('h3');
+        if (!titleElement) return;
+
+        const skillName = titleElement.textContent.trim();
+        const description = skillDescriptions[skillName] || "Passionate about leveraging this tool to build great experiences.";
+
+        // Get everything currently inside the card (icon + h3)
+        const originalContent = card.innerHTML;
+
+        // Re-write the HTML inside the card with the 3D wrapper structure
+        card.innerHTML = `
+            <div class="skill-card-inner">
+                <div class="skill-card-front">
+                    ${originalContent}
+                </div>
+                <div class="skill-card-back">
+                    <p>${description}</p>
+                </div>
+            </div>
+        `;
+
+        // Add the click listener to flip
+        card.addEventListener('click', () => {
+            // Optional: uncomment below to close other open cards when one is clicked
+            /*
+            document.querySelectorAll('.skill-card.flipped').forEach(c => {
+                if (c !== card) c.classList.remove('flipped');
+            });
+            */
+            card.classList.toggle('flipped');
         });
     });
 
