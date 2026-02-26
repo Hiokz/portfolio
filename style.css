@@ -696,10 +696,6 @@ footer p {
     }
 
     .nav-links {
-        display: none;
-    }
-
-    .nav-links.active {
         display: flex;
         flex-direction: column;
         position: absolute;
@@ -711,6 +707,22 @@ footer p {
         border: 1px solid var(--bg-lighter);
         gap: 20px;
         z-index: 1000;
+
+        /* Animation Properties for Hidden State */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px) scale(0.95);
+        pointer-events: none;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        /* Bouncy effect */
+        transform-origin: top right;
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
     }
 
     .hamburger {
