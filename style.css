@@ -669,6 +669,20 @@ footer p {
         display: none;
     }
 
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        background: var(--bg-light);
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid var(--bg-lighter);
+        gap: 20px;
+        z-index: 1000;
+    }
+
     .hamburger {
         display: block;
     }
@@ -683,5 +697,12 @@ footer p {
 
     .about-content {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 400px) {
+    .filter-btn {
+        padding: 6px 12px;
+        font-size: 13px;
     }
 }

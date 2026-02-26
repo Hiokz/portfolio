@@ -33,20 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelector('.nav-links');
 
     hamburger.addEventListener('click', () => {
-        if (navLinks.style.display === 'flex') {
-            navLinks.style.display = 'none';
-        } else {
-            navLinks.style.display = 'flex';
-            navLinks.style.flexDirection = 'column';
-            navLinks.style.position = 'absolute';
-            navLinks.style.top = '80px';
-            navLinks.style.right = '20px';
-            navLinks.style.background = 'var(--bg-light)';
-            navLinks.style.padding = '20px';
-            navLinks.style.borderRadius = '8px';
-            navLinks.style.border = '1px solid var(--bg-lighter)';
-            navLinks.style.gap = '20px';
-        }
+        navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when a link is clicked
+    const navItems = document.querySelectorAll('.nav-links li a');
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // Small timeout allows the browser to process the anchor jump before tearing down the DOM node's CSS
+            setTimeout(() => {
+                navLinks.classList.remove('active');
+            }, 50);
+        });
     });
 
     // Form submission via FormSubmit AJAX
