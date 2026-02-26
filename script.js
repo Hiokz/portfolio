@@ -99,11 +99,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = themeToggle.querySelector('i');
 
-    // Check saved theme or system preference
+    // Check saved theme
     const savedTheme = localStorage.getItem('theme');
-    const systemPrefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
 
-    if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
+    if (savedTheme === 'light') {
         document.body.classList.add('light-theme');
         themeIcon.classList.replace('fa-sun', 'fa-moon');
     }
