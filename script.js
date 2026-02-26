@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
     });
 
     // Close mobile menu when a link is clicked
@@ -43,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Small timeout allows the browser to process the anchor jump before tearing down the DOM node's CSS
             setTimeout(() => {
                 navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
             }, 50);
         });
     });
