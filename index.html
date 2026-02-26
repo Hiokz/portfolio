@@ -31,7 +31,7 @@
         rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" href="style.css?v=4">
 </head>
 
 <body>
@@ -557,13 +557,16 @@
                 <form id="contact-form" class="contact-form" action="https://formsubmit.co/weijia056@gmail.com"
                     method="POST">
                     <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Name" required>
+                        <input type="text" id="name" name="name" placeholder=" " required>
+                        <label for="name">Name</label>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Email" required>
+                        <input type="email" id="email" name="email" placeholder=" " required>
+                        <label for="email">Email</label>
                     </div>
                     <div class="form-group">
-                        <textarea id="message" name="message" rows="5" placeholder="Message" required></textarea>
+                        <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+                        <label for="message">Message</label>
                     </div>
                     <!-- FormSubmit specific inputs to prevent captcha and redirect -->
                     <input type="hidden" name="_captcha" value="false">
@@ -587,7 +590,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=3"></script>
+    <script src="script.js?v=4"></script>
 </body>
 
 </html>

@@ -6,11 +6,24 @@ document.addEventListener('DOMContentLoaded', () => {
         threshold: 0.1
     };
 
+    let delayCounter = 0;
+    let delayTimeout = null;
+
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // Apply a dynamic transition delay to stagger the animations
+                entry.target.style.transitionDelay = `${delayCounter * 100}ms`;
                 entry.target.classList.add('show');
                 observer.unobserve(entry.target);
+
+                delayCounter++;
+
+                // Reset the counter after a short delay so the next scroll batch starts at 0
+                clearTimeout(delayTimeout);
+                delayTimeout = setTimeout(() => {
+                    delayCounter = 0;
+                }, 100);
             }
         });
     }, observerOptions);
@@ -107,17 +120,50 @@ document.addEventListener('DOMContentLoaded', () => {
         themeIcon.classList.replace('fa-sun', 'fa-moon');
     }
 
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('light-theme');
-        const isLight = document.body.classList.contains('light-theme');
+    themeToggle.addEventListener('click', (e) => {
+        // Create an overlay expanding from the click coordinates
+        const rect = themeToggle.getBoundingClientRect();
+        const x = rect.left + rect.width / 2;
+        const y = rect.top + rect.height / 2;
 
-        if (isLight) {
-            themeIcon.classList.replace('fa-sun', 'fa-moon');
-            localStorage.setItem('theme', 'light');
-        } else {
-            themeIcon.classList.replace('fa-moon', 'fa-sun');
-            localStorage.setItem('theme', 'dark');
-        }
+        const overlay = document.createElement('div');
+        overlay.className = 'theme-sweep-overlay';
+
+        const isLightCurrently = document.body.classList.contains('light-theme');
+        // If currently light, we are going dark. If currently dark, we are going light.
+        overlay.style.backgroundColor = isLightCurrently ? '#020617' : '#f8fafc'; // Matches --bg-main
+
+        overlay.style.left = `${x}px`;
+        overlay.style.top = `${y}px`;
+
+        document.body.appendChild(overlay);
+
+        // Force reflow
+        overlay.offsetHeight;
+
+        // Start expanding
+        overlay.style.transform = `scale(150)`;
+
+        setTimeout(() => {
+            // Change actual theme when the screen is fully covered by the colored overlay
+            document.body.classList.toggle('light-theme');
+            const isLight = document.body.classList.contains('light-theme');
+
+            if (isLight) {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            }
+
+            // Fade out overlay to reveal the new theme underneath
+            overlay.style.opacity = '0';
+
+            setTimeout(() => {
+                overlay.remove();
+            }, 400);
+        }, 400); // 400ms delay to allow the expanding circle to fill the viewport
     });
 
 
