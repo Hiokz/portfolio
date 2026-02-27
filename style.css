@@ -376,6 +376,42 @@ body.light-theme .navbar.scrolled {
     gap: 20px;
 }
 
+/* Abstract Background Glow ported from Agency */
+.hero-bg-glow {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    /* Placed on the right to balance the text */
+    transform: translateY(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(80px);
+    /* Heavy blur for ambient effect */
+    opacity: 0.15;
+    /* Subtle in light mode, stands out more in dark */
+    animation: pulse-glow 8s infinite alternate ease-in-out;
+}
+
+@keyframes pulse-glow {
+    0% {
+        transform: translateY(-50%) scale(0.8);
+        opacity: 0.1;
+    }
+
+    100% {
+        transform: translateY(-50%) scale(1.2);
+        opacity: 0.25;
+    }
+}
+
+/* Ensure body doesn't cause overflow with the large glow */
+body {
+    overflow-x: hidden;
+}
+
 /* About Section */
 .about-content {
     display: grid;
