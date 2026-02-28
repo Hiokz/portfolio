@@ -362,8 +362,8 @@ body.light-theme .navbar.scrolled {
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 20px;
-    min-height: 2.2em;
-    /* Prevents layout jump when text wraps to two lines */
+    min-height: calc(1.1em * 2);
+    /* Reliable height for two lines of text at 1.1 line-height */
 }
 
 .hero-description {
@@ -441,7 +441,8 @@ body {
 }
 
 .agency-banner-container {
-    padding: 0 0 100px 0;
+    padding: 50px 0 100px 0;
+    /* Added top padding to ensure it's pushed away from hero when wrapped */
     position: relative;
     z-index: 10;
 }
