@@ -121,6 +121,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     themeToggle.addEventListener('click', () => {
+        // Clear staggered scroll animation delays so all cards switch themes instantly
+        document.querySelectorAll('.project-card, .skill-card, .hidden').forEach(el => {
+            el.style.transitionDelay = '0ms';
+        });
+
         document.body.classList.toggle('light-theme');
         const isLight = document.body.classList.contains('light-theme');
 
