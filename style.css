@@ -446,8 +446,8 @@ body {
 }
 
 .agency-banner-container {
-    padding: 20px 0 100px 0;
-    /* Reduced top padding to prevent huge gap when text is short */
+    padding: 60px 0 100px 0;
+    /* Increased top padding to ensure there's enough space above the banner */
     position: relative;
     z-index: 10;
 }
