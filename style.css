@@ -164,6 +164,7 @@ ul {
 /* Section Common */
 section {
     padding: 100px 0;
+    scroll-margin-top: var(--nav-height);
 }
 
 .section-title {
@@ -330,6 +331,7 @@ body.light-theme .navbar.scrolled {
     flex-direction: column;
     justify-content: flex-start;
     padding-top: calc(var(--nav-height) + 80px);
+    scroll-margin-top: var(--nav-height);
     /* Anchors content exactly 80px below header, unaffected by typewriter wrapping */
 }
 
