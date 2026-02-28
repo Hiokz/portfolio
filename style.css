@@ -363,7 +363,8 @@ body.light-theme .navbar.scrolled {
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 20px;
-    /* Removed fixed min-height to allow natural wrapping without massive gaps */
+    min-height: 2.2em;
+    /* Fixed min-height to prevent layout jump when typewriter wraps to two lines */
 }
 
 .hero-description {
