@@ -362,6 +362,8 @@ body.light-theme .navbar.scrolled {
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 20px;
+    min-height: 2.2em;
+    /* Prevents layout jump when text wraps to two lines */
 }
 
 .hero-description {
@@ -484,6 +486,11 @@ body.light-theme .agency-banner {
     pointer-events: none;
 }
 
+body.light-theme .agency-banner::before {
+    display: none;
+    /* Removed radial circle shadow in light mode */
+}
+
 .banner-content h3 {
     font-size: clamp(24px, 4vw, 32px);
     margin-bottom: 15px;
@@ -500,6 +507,20 @@ body.light-theme .agency-banner {
     color: var(--accent);
 }
 
+@keyframes btn-agency-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0.5);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(var(--accent-rgb), 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0);
+    }
+}
+
 .btn-agency {
     display: inline-flex;
     align-items: center;
@@ -512,12 +533,15 @@ body.light-theme .agency-banner {
     font-size: 16px;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     text-decoration: none;
+    animation: btn-agency-pulse 2s infinite;
 }
 
 body.light-theme .btn-agency {
     background: var(--bg-main);
     color: var(--text-main);
     border: 2px solid var(--text-main);
+    animation: none;
+    /* Disable pulse animation in light mode */
 }
 
 .btn-agency:hover {
@@ -525,6 +549,8 @@ body.light-theme .btn-agency {
     color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(var(--accent-rgb), 0.3);
+    animation: none;
+    /* Stop pulsing when hovering */
 }
 
 body.light-theme .btn-agency:hover {
