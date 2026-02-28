@@ -328,8 +328,8 @@ body.light-theme .navbar.scrolled {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 100px;
-    /* Exactly 100px total top padding (20px below the 80px header) */
+    padding-top: 80px;
+    /* Exactly 80px total top padding (flushed against the 80px header) */
 }
 
 .hero-content {
