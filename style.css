@@ -47,7 +47,7 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: background-color 0s linear, color 0s linear;
 }
 
 
@@ -552,7 +552,7 @@ body {
     background: var(--bg-light);
     border-radius: 8px;
     overflow: hidden;
-    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease, border-color 0.4s ease, background-color 0.2s ease;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease, border-color 0.4s ease, background-color 0s linear;
     border: 1px solid transparent;
     transform-style: preserve-3d;
     perspective: 1000px;
