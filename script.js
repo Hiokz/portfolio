@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = Object.fromEntries(formData.entries());
 
             try {
-                const response = await fetch("https://formsubmit.co/ajax/weijia056@gmail.com", {
+                const response = await fetch("https://formsubmit.co/ajax/7c8ea1d906c0c1d243cabf44a55c1d92", {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json',
