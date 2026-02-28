@@ -327,7 +327,8 @@ body.light-theme .navbar.scrolled {
 .hero {
     min-height: 100vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     padding-top: calc(var(--nav-height) + 80px);
     /* Guarantees exactly 80px of clear space beneath the header */
 }
@@ -363,8 +364,6 @@ body.light-theme .navbar.scrolled {
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 20px;
-    min-height: 2.2em;
-    /* Fixed min-height to prevent layout jump when typewriter wraps to two lines */
 }
 
 .hero-description {
