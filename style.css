@@ -472,25 +472,10 @@ body.light-theme .agency-banner {
 
 .agency-banner:hover {
     transform: translateY(-5px);
-    box-shadow: 0 30px 60px rgba(var(--accent-rgb), 0.15);
-    border-color: rgba(var(--accent-rgb), 0.3);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
-.agency-banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 100% 0%, rgba(var(--accent-rgb), 0.1) 0%, transparent 60%);
-    pointer-events: none;
-}
-
-body.light-theme .agency-banner::before {
-    display: none;
-    /* Removed radial circle shadow in light mode */
-}
 
 .banner-content h3 {
     font-size: clamp(24px, 4vw, 32px);
