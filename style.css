@@ -330,9 +330,9 @@ body.light-theme .navbar.scrolled {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: calc(var(--nav-height) + 60px);
+    padding-top: calc(var(--nav-height) + 50px);
     scroll-margin-top: var(--nav-height);
-    /* Anchors content exactly 60px below header, unaffected by typewriter wrapping */
+    /* Anchors content exactly 50px below header, unaffected by typewriter wrapping */
 }
 
 .hero-content {
