@@ -200,6 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Canva": "Quick, templated asset creation for social media and marketing collateral.",
         "Vercel": "My preferred platform for deploying lightning-fast frontend frameworks globally.",
         "Supabase": "An open-source Firebase alternative providing a robust Postgres database, auth, and real-time subscriptions.",
+        "Render": "A unified cloud platform to host and scale full-stack web applications and complex backend services.",
         "Squarespace": "Setting up elegant, reliable websites rapidly for clients who need no-code visual management.",
         "Wix": "Deploying highly customized, visually rich, template-driven web experiences.",
         "Replit": "Rapid prototyping and collaborative cloud coding directly in the browser.",
@@ -211,6 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "SEO": "Optimizing keywords, metadata, and site architecture to rank high on search engines.",
         "Scriptwriting": "Writing compelling, retention-optimized narratives that hook viewers and drive action.",
         "Base44": "A modern framework for robust, secure data encoding and structured deployment.",
+        "Windsurf": "AI-powered IDE designed to accelerate coding through advanced context awareness and agentic capabilities.",
 
         "Shopify": "Building high-converting, heavily customized eCommerce storefronts that scale.",
         "Stripe": "Integrating secure, complex payment flows, subscriptions, and financial infrastructure.",
@@ -219,6 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "TradingView": "Writing custom PineScript indicators and analyzing complex market structures.",
         "MT4/5": "Algorithmic trading platforms where I deploy automated quantitative scripts.",
         "Zapier": "Connecting disparate SaaS tools to automate boring manual workflows visually.",
+        "Make.com": "Designing and orchestrating complex visual automation scenarios across countless APIs and services.",
         "n8n": "Advanced, source-available node-based automation handling complex webhooks and data pipelines.",
         "Product Strategy": "Defining vision, market-fit, and long-term roadmaps for digital products.",
         "Monetization": "Designing high-conversion pricing structures and maximizing customer lifetime value.",
