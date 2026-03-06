@@ -171,6 +171,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- Projects Filter Logic ---
+    const projectFilterBtns = document.querySelectorAll('.project-filter-btn');
+    const filterableProjectCards = document.querySelectorAll('.project-card');
+
+    projectFilterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            projectFilterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            filterableProjectCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+
+                if (filterValue === 'all' || filterValue === category) {
+                    card.style.display = 'block';
+                    card.style.animation = 'none';
+                    card.offsetHeight; /* trigger reflow */
+                    card.style.animation = null;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
     // --- 3D Skill Card Flip Logic & Descriptions ---
     const skillDescriptions = {
         "HTML5": "The semantic backbone of the modern web. I use HTML5 to structure accessible, SEO-friendly content.",

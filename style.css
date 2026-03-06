@@ -582,6 +582,171 @@ body.light-theme .btn-agency:hover {
     font-size: 18px;
 }
 
+/* About Timeline */
+.timeline-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.timeline-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-title {
+    font-size: 20px;
+    color: var(--text-main);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.timeline-title i {
+    color: var(--accent);
+}
+
+.timeline {
+    border-left: 2px solid var(--bg-lighter);
+    padding-left: 30px;
+    position: relative;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -37px;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.timeline-date {
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-family: var(--font-mono);
+}
+
+.timeline-content-card {
+    background: var(--bg-light);
+    border: 1px solid var(--bg-lighter);
+    border-radius: 8px;
+    padding: 20px;
+    transition: var(--transition);
+}
+
+.timeline-content-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
+}
+
+.timeline-content-card h4 {
+    color: var(--text-main);
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.timeline-content-card h5 {
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.timeline-content-card p {
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+/* Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: var(--bg-light);
+    border: 1px solid var(--bg-lighter);
+    border-radius: 12px;
+    padding: 40px 30px;
+    transition: var(--transition);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+}
+
+.service-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(100, 255, 218, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: var(--accent);
+    margin-bottom: 25px;
+    transition: var(--transition);
+}
+
+.service-card:hover .service-icon {
+    background: var(--accent);
+    color: var(--bg-main);
+    transform: scale(1.1);
+}
+
+.service-card h3 {
+    color: var(--text-main);
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.service-tech {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.service-tech li {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-family: monospace;
+}
+
 /* Skills Section */
 /* Skills Filter Buttons */
 .skills-filters {
@@ -592,7 +757,8 @@ body.light-theme .btn-agency:hover {
     margin-bottom: 40px;
 }
 
-.filter-btn {
+.filter-btn,
+.project-filter-btn {
     background: transparent;
     border: 1px solid var(--accent);
     color: var(--text-main);
@@ -604,12 +770,14 @@ body.light-theme .btn-agency:hover {
     transition: var(--transition);
 }
 
-.filter-btn:hover {
+.filter-btn:hover,
+.project-filter-btn:hover {
     background: var(--accent-tint);
     box-shadow: 0 0 10px var(--accent-glow);
 }
 
-.filter-btn.active {
+.filter-btn.active,
+.project-filter-btn.active {
     background: var(--accent);
     color: var(--bg-main);
     font-weight: 600;
@@ -825,9 +993,62 @@ body.light-theme .btn-agency:hover {
 }
 
 .form-group input:focus,
-.form-group textarea:focus {
+.form-group textarea:focus,
+.form-select:focus {
     outline: none;
     border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.1);
+}
+
+.custom-select-wrapper {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.form-select {
+    width: 100%;
+    padding: 15px;
+    background: var(--bg-light);
+    border: 1px solid var(--bg-lighter);
+    border-radius: 4px;
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    appearance: none;
+    /* Remove default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-select:hover {
+    border-color: rgba(100, 255, 218, 0.3);
+}
+
+/* Custom Arrow Icon */
+.custom-select-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    /* Let clicks pass through to select */
+    color: var(--text-muted);
+    font-size: 14px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.form-select:focus+.custom-select-icon {
+    transform: translateY(-50%) rotate(180deg);
+    color: var(--accent);
+}
+
+/* Style the options explicitly (some styling works natively, though deeply constrained by OS) */
+.form-select option {
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    padding: 10px;
 }
 
 .submit-btn {
@@ -934,10 +1155,16 @@ footer p {
     .about-content {
         grid-template-columns: 1fr;
     }
+
+    .timeline-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 400px) {
-    .filter-btn {
+
+    .filter-btn,
+    .project-filter-btn {
         padding: 6px 12px;
         font-size: 13px;
     }
