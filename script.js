@@ -138,6 +138,84 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- Custom Animated Dropdowns (from Hiok Digital) ---
+    const customSelectSources = document.querySelectorAll('.custom-select-source');
+
+    customSelectSources.forEach(select => {
+        // Hide the original select
+        select.classList.add('hidden-select');
+
+        // Create the custom wrapper
+        const wrapper = document.createElement('div');
+        wrapper.className = 'custom-select-container';
+        select.parentNode.insertBefore(wrapper, select);
+        wrapper.appendChild(select);
+
+        // Create the trigger div
+        const trigger = document.createElement('div');
+        trigger.className = 'custom-select-trigger';
+
+        let selectedOption = select.options[select.selectedIndex];
+        let placeholderText = "Select an option";
+        if (selectedOption) {
+            placeholderText = selectedOption.text;
+        }
+
+        trigger.innerHTML = `
+            <span class="trigger-text">${placeholderText}</span>
+            <i class="fas fa-chevron-down arrow-icon"></i>
+        `;
+        wrapper.appendChild(trigger);
+
+        // Create the options container
+        const optionsContainer = document.createElement('div');
+        optionsContainer.className = 'custom-options-container';
+        wrapper.appendChild(optionsContainer);
+
+        // Create an option div for each option
+        Array.from(select.options).forEach((option) => {
+            const optionDiv = document.createElement('div');
+            optionDiv.className = 'custom-option';
+            optionDiv.textContent = option.text;
+            optionDiv.dataset.value = option.value;
+
+            if (option.disabled && option.value === "") {
+                optionDiv.classList.add('is-placeholder');
+            }
+
+            optionDiv.addEventListener('click', (e) => {
+                e.stopPropagation();
+                trigger.querySelector('.trigger-text').textContent = optionDiv.textContent;
+                select.value = optionDiv.dataset.value;
+
+                // Trigger change event to ensure form validation/state catch the update if needed
+                select.dispatchEvent(new Event('change'));
+
+                optionsContainer.querySelectorAll('.custom-option').forEach(opt => opt.classList.remove('selected'));
+                optionDiv.classList.add('selected');
+                wrapper.classList.remove('open');
+            });
+
+            optionsContainer.appendChild(optionDiv);
+        });
+
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.querySelectorAll('.custom-select-container').forEach(container => {
+                if (container !== wrapper) {
+                    container.classList.remove('open');
+                }
+            });
+            wrapper.classList.toggle('open');
+        });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.custom-select-container').forEach(container => {
+            container.classList.remove('open');
+        });
+    });
 
     // --- Skills Filter Logic ---
     const filterBtns = document.querySelectorAll('.filter-btn');

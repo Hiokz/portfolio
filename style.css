@@ -993,19 +993,26 @@ body.light-theme .btn-agency:hover {
 }
 
 .form-group input:focus,
-.form-group textarea:focus,
-.form-select:focus {
+.form-group textarea:focus {
     outline: none;
     border-color: var(--accent);
     box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.1);
 }
 
-.custom-select-wrapper {
+/* Custom Select Animation and Styles (from Hiok Digital) */
+.custom-select-container {
     position: relative;
-    margin-bottom: 25px;
+    width: 100%;
 }
 
-.form-select {
+.custom-select-source.hidden-select {
+    display: none !important;
+}
+
+.custom-select-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     padding: 15px;
     background: var(--bg-light);
@@ -1014,41 +1021,87 @@ body.light-theme .btn-agency:hover {
     color: var(--text-main);
     font-family: var(--font-sans);
     font-size: 16px;
-    appearance: none;
-    /* Remove default arrow */
-    -webkit-appearance: none;
-    -moz-appearance: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
-.form-select:hover {
+.custom-select-trigger:hover {
     border-color: rgba(100, 255, 218, 0.3);
 }
 
-/* Custom Arrow Icon */
-.custom-select-icon {
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-    pointer-events: none;
-    /* Let clicks pass through to select */
-    color: var(--text-muted);
-    font-size: 14px;
-    transition: transform 0.3s ease, color 0.3s ease;
+.custom-select-container.open .custom-select-trigger {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.1);
 }
 
-.form-select:focus+.custom-select-icon {
-    transform: translateY(-50%) rotate(180deg);
+.custom-select-trigger .arrow-icon {
+    font-size: 14px;
+    color: var(--text-muted);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.custom-select-container.open .custom-select-trigger .arrow-icon {
+    transform: rotate(180deg);
     color: var(--accent);
 }
 
-/* Style the options explicitly (some styling works natively, though deeply constrained by OS) */
-.form-select option {
-    background-color: var(--bg-light);
+.custom-options-container {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 100%;
+    background: var(--bg-lighter);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    z-index: 20;
+    overflow: hidden;
+
+    /* Animation states */
+    opacity: 0;
+    transform: translateY(-10px) scaleY(0.95);
+    transform-origin: top;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.custom-select-container.open .custom-options-container {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+    pointer-events: auto;
+}
+
+.custom-option {
+    padding: 14px 16px;
+    font-size: 15px;
     color: var(--text-main);
-    padding: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.custom-option.is-placeholder {
+    color: var(--text-muted);
+    font-style: italic;
+    display: none;
+}
+
+.custom-option:last-child {
+    border-bottom: none;
+}
+
+.custom-option:hover {
+    background: rgba(100, 255, 218, 0.05);
+    padding-left: 20px;
+    color: var(--accent);
+}
+
+.custom-option.selected {
+    background: rgba(100, 255, 218, 0.1);
+    color: var(--accent);
+    font-weight: 500;
 }
 
 .submit-btn {
