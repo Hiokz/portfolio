@@ -603,30 +603,8 @@ body {
     font-family: monospace;
 }
 
-/* Project Filter Buttons */
-.project-filter-btn {
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--text-main);
-    padding: 8px 20px;
-    border-radius: 30px;
-    font-size: 14px;
-    font-family: var(--font-sans);
-    cursor: pointer;
-    transition: var(--transition);
-}
 
-.project-filter-btn:hover {
-    background: var(--accent-tint);
-    box-shadow: 0 0 10px var(--accent-glow);
-}
 
-.project-filter-btn.active {
-    background: var(--accent);
-    color: var(--bg-main);
-    font-weight: 600;
-    box-shadow: 0 0 15px var(--accent-glow);
-}
 
 /* Projects Section */
 .projects-grid {
