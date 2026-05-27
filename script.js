@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Project Filter Buttons ---
     const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
+    const filterCards = document.querySelectorAll('.project-card');
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const filter = btn.dataset.filter;
 
-            projectCards.forEach(card => {
+            filterCards.forEach(card => {
                 if (filter === 'all' || card.dataset.category === filter) {
                     card.classList.remove('hidden-by-filter');
                 } else {
