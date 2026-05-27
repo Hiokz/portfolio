@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const typeWriterEl = document.getElementById('typewriter');
     if (typeWriterEl) {
         const roles = [
-            "Aspiring Software Engineer."
+            "Aspiring SWE."
         ];
 
         let roleIndex = 0;
