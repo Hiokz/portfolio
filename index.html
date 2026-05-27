@@ -40,9 +40,7 @@
             <a href="#" class="logo">S<span>.</span></a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
-
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="https://hiok.digital/">Agency</a></li>
                 <li><a href="#contact" class="btn btn-primary">Let's Talk</a></li>
             </ul>
             <div class="nav-controls">
@@ -113,11 +111,17 @@
 
     <section class="projects" id="projects">
         <div class="container">
-            <h2 class="section-title hidden">Some Things I've Built</h2>
+            <h2 class="section-title hidden">My Projects</h2>
+
+            <div class="project-filters hidden">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="personal">Personal Project</button>
+                <button class="filter-btn" data-filter="school">School Project</button>
+            </div>
 
             <div class="projects-grid" id="projects-grid">
                 <!-- Project: FinTracks -->
-                <div class="project-card hidden">
+                <div class="project-card hidden" data-category="personal">
                     <div class="project-img">
                         <img src="assets/case-study-finance.png" loading="lazy"
                             alt="FinTracks Finance and Trading Journal Dashboard">
@@ -144,7 +148,7 @@
                 </div>
 
                 <!-- Project: Arthur Sewu Marketing -->
-                <div class="project-card hidden">
+                <div class="project-card hidden" data-category="personal">
                     <div class="project-img">
                         <img src="assets/case-study-arthur.png" loading="lazy"
                             alt="Arthur Sewu Full Stack Marketer Landing Page">
@@ -171,7 +175,7 @@
                 </div>
 
                 <!-- Project: PW Gem Calculator -->
-                <div class="project-card hidden">
+                <div class="project-card hidden" data-category="personal">
                     <div class="project-img">
                         <img src="assets/case-study-pw.png" loading="lazy" alt="Pixel World Gem Calculator">
                     </div>
@@ -197,7 +201,7 @@
                 </div>
 
                 <!-- Project: Digital Agency -->
-                <div class="project-card hidden">
+                <div class="project-card hidden" data-category="personal">
                     <div class="project-img">
                         <img src="assets/case-study-agency.png" loading="lazy" alt="Hiok Digital Agency Landing Page">
                     </div>

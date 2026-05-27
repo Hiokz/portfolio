@@ -606,6 +606,43 @@ body {
 
 
 
+/* Projects Filter Buttons */
+.project-filters {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    padding: 9px 22px;
+    border-radius: 6px;
+    border: 1px solid var(--bg-lighter);
+    background: transparent;
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    letter-spacing: 0.3px;
+}
+
+.filter-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.filter-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg-main);
+}
+
+.project-card.hidden-by-filter {
+    display: none;
+}
+
 /* Projects Section */
 .projects-grid {
     display: grid;
