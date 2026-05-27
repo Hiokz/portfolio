@@ -252,29 +252,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 3D Project Card Tilt ---
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
 
-            // Calculate rotation based on mouse position relative to center
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
 
-            const rotateX = ((y - centerY) / centerY) * -10; // Max 10 deg vertical
-            const rotateY = ((x - centerX) / centerX) * 10;  // Max 10 deg horizontal
-
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-        });
-
-        card.addEventListener('mouseleave', () => {
-            // Reset transforms with a smooth transition
-            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-        });
-    });
 
     // --- Project Filter Buttons ---
     const filterBtns = document.querySelectorAll('.filter-btn');
