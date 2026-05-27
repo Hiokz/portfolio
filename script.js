@@ -193,16 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const typeWriterEl = document.getElementById('typewriter');
     if (typeWriterEl) {
         const roles = [
-            "Aspiring Software Engineer.",
-            "Building the Future, One Line at a Time.",
-            "ECE Graduate Turned Builder.",
-            "Passionate About Clean Code.",
-            "Turning Ideas into Digital Reality.",
-            "Learning. Growing. Shipping.",
-            "UI/UX Engineer by Craft.",
-            "Problem Solver at Heart.",
-            "Founder of HIOK.DIGITAL.",
-            "Engineering Dreams into Products."
+            "Aspiring Software Engineer."
         ];
 
         let roleIndex = 0;
