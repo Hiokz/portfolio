@@ -214,8 +214,8 @@ section {
 }
 
 .nav-links .btn-primary:hover {
-    background-color: var(--text-main);
-    color: var(--bg-main);
+    background-color: var(--bg-hover);
+    color: var(--text-main);
     opacity: 1;
 }
 
