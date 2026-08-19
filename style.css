@@ -200,11 +200,11 @@ section {
     -webkit-backdrop-filter: blur(14px);
     z-index: 1000;
     transition: var(--transition);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.45);
 }
 
 .navbar.scrolled {
-    box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.12);
+    /* no box-shadow on scroll */
 }
 
 /* "Let's Talk" nav button — transparent background */
