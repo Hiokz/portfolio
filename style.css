@@ -462,9 +462,9 @@ section {
 }
 
 .filter-btn.active {
-    background: var(--text-main);
+    background: var(--bg-hover);
     border-color: var(--text-main);
-    color: var(--bg-main);
+    color: var(--text-main);
 }
 
 .project-card.hidden-by-filter {
