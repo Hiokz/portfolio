@@ -2,31 +2,33 @@
    Custom Properties / Design Tokens
    ============================================ */
 :root {
-    --bg-main:    #B2EBF2;
-    --bg-card:    #C9F0F5;
-    --bg-hover:   #9AE3EC;
-    --nav-bg:     rgba(178, 235, 242, 0.88);
+    --bg-main: #B2EBF2;
+    --bg-card: #C9F0F5;
+    --bg-hover: #9AE3EC;
+    --nav-bg: rgba(178, 235, 242, 0.88);
 
-    --text-main:  #000000;
+    --text-main: #000000;
     --text-muted: #2a2a2a;
-    --text-subtle:#555555;
+    --text-subtle: #555555;
 
-    --accent:     #000000;
-    --accent-tint:rgba(0, 0, 0, 0.06);
+    --accent: #000000;
+    --accent-tint: rgba(0, 0, 0, 0.06);
 
-    --border:     rgba(0, 0, 0, 0.18);
+    --border: rgba(0, 0, 0, 0.18);
     --border-strong: rgba(0, 0, 0, 0.55);
 
-    --font-sans:  'Inter', sans-serif;
+    --font-sans: 'Inter', sans-serif;
     --nav-height: 72px;
-    --radius:     6px;
+    --radius: 6px;
     --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 /* ============================================
    Reset & Base
    ============================================ */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -44,7 +46,12 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: var(--text-main);
     font-weight: 700;
 }
@@ -139,8 +146,15 @@ ul {
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 /* ============================================
@@ -286,9 +300,11 @@ section {
 .hamburger.active .bar:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
+
 .hamburger.active .bar:nth-child(2) {
     opacity: 0;
 }
+
 .hamburger.active .bar:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
 }
@@ -354,7 +370,7 @@ section {
     right: 5%;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(0,0,0,0.04) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.04) 0%, transparent 70%);
     z-index: 0;
     pointer-events: none;
     border-radius: 50%;
@@ -362,8 +378,15 @@ section {
 }
 
 @keyframes pulse-glow {
-    0%   { transform: scale(0.85); opacity: 0.5; }
-    100% { transform: scale(1.15); opacity: 1; }
+    0% {
+        transform: scale(0.85);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
 }
 
 /* ============================================
@@ -462,8 +485,8 @@ section {
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
-                box-shadow 0.35s ease,
-                border-color 0.35s ease;
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
     border: 1.5px solid var(--border);
 }
 
@@ -755,7 +778,7 @@ footer p {
     opacity: 0;
     transform: translateY(24px);
     transition: opacity 0.55s cubic-bezier(0.5, 0, 0, 1),
-                transform 0.55s cubic-bezier(0.5, 0, 0, 1);
+        transform 0.55s cubic-bezier(0.5, 0, 0, 1);
 }
 
 .show {
@@ -900,6 +923,7 @@ footer p {
 }
 
 @media (max-width: 400px) {
+
     .filter-btn,
     .project-filter-btn {
         padding: 6px 12px;
