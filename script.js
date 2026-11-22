@@ -1,25 +1,78 @@
+/**
+ * Selamat.dev — Portfolio Script
+ * Theme: Hiok Digital Inspired Interactive Features
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Scroll animations using Intersection Observer
+
+    // ==========================================
+    // 1. Mobile Menu Toggle
+    // ==========================================
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking any nav link
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+    }
+
+    // ==========================================
+    // 2. Navbar Background on Scroll
+    // ==========================================
+    const navbar = document.querySelector('.navbar');
+    const handleScroll = () => {
+        if (!navbar) return;
+        if (window.scrollY > 40) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    // ==========================================
+    // 3. Staggered Scroll Animations (IntersectionObserver)
+    // ==========================================
     const observerOptions = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.1
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.12
     };
 
     let delayCounter = 0;
     let delayTimeout = null;
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Apply a dynamic transition delay to stagger the animations
-                entry.target.style.transitionDelay = `${delayCounter * 100}ms`;
+                // Stagger appearance of cards and sections
+                entry.target.style.transitionDelay = `${delayCounter * 80}ms`;
                 entry.target.classList.add('show');
                 observer.unobserve(entry.target);
 
                 delayCounter++;
 
-                // Reset the counter after a short delay so the next scroll batch starts at 0
                 clearTimeout(delayTimeout);
                 delayTimeout = setTimeout(() => {
                     delayCounter = 0;
@@ -29,171 +82,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     const hiddenElements = document.querySelectorAll('.hidden');
-    hiddenElements.forEach((el) => observer.observe(el));
+    hiddenElements.forEach(el => revealObserver.observe(el));
 
-    // Navbar scroll effect
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-
-    // Mobile Menu Toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        hamburger.classList.toggle('active');
-    });
-
-    // Close mobile menu when a link is clicked
-    const navItems = document.querySelectorAll('.nav-links li a');
-    navItems.forEach(item => {
-        item.addEventListener('click', () => {
-            // Small timeout allows the browser to process the anchor jump before tearing down the DOM node's CSS
-            setTimeout(() => {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-            }, 50);
-        });
-    });
-
-    // Form submission via FormSubmit AJAX
-    const form = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
-    const submitBtn = form ? form.querySelector('.submit-btn') : null;
-
-    if (form) {
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
-
-            try {
-                const response = await fetch("https://formsubmit.co/ajax/7c8ea1d906c0c1d243cabf44a55c1d92", {
-                    method: "POST",
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                });
-
-                if (response.ok) {
-                    formStatus.textContent = 'Thank you for reaching out! I will get back to you soon.';
-                    formStatus.style.color = 'var(--accent)';
-                    form.reset();
-                } else {
-                    formStatus.textContent = 'Oops! There was a problem submitting your form.';
-                    formStatus.style.color = '#ff6b6b';
-                }
-            } catch (error) {
-                formStatus.textContent = 'Oops! There was a problem submitting your form.';
-                formStatus.style.color = '#ff6b6b';
-            } finally {
-                submitBtn.textContent = 'Send Message';
-                submitBtn.disabled = false;
-
-                setTimeout(() => {
-                    formStatus.textContent = '';
-                }, 5000);
-            }
-        });
-    }
-
-
-    // --- Custom Animated Dropdowns (from Hiok Digital) ---
-    const customSelectSources = document.querySelectorAll('.custom-select-source');
-
-    customSelectSources.forEach(select => {
-        // Hide the original select
-        select.classList.add('hidden-select');
-
-        // Create the custom wrapper
-        const wrapper = document.createElement('div');
-        wrapper.className = 'custom-select-container';
-        select.parentNode.insertBefore(wrapper, select);
-        wrapper.appendChild(select);
-
-        // Create the trigger div
-        const trigger = document.createElement('div');
-        trigger.className = 'custom-select-trigger';
-
-        let selectedOption = select.options[select.selectedIndex];
-        let placeholderText = "Select an option";
-        if (selectedOption) {
-            placeholderText = selectedOption.text;
-        }
-
-        trigger.innerHTML = `
-            <span class="trigger-text">${placeholderText}</span>
-            <i class="fas fa-chevron-down arrow-icon"></i>
-        `;
-        wrapper.appendChild(trigger);
-
-        // Create the options container
-        const optionsContainer = document.createElement('div');
-        optionsContainer.className = 'custom-options-container';
-        wrapper.appendChild(optionsContainer);
-
-        // Create an option div for each option
-        Array.from(select.options).forEach((option) => {
-            const optionDiv = document.createElement('div');
-            optionDiv.className = 'custom-option';
-            optionDiv.textContent = option.text;
-            optionDiv.dataset.value = option.value;
-
-            if (option.disabled && option.value === "") {
-                optionDiv.classList.add('is-placeholder');
-            }
-
-            optionDiv.addEventListener('click', (e) => {
-                e.stopPropagation();
-                trigger.querySelector('.trigger-text').textContent = optionDiv.textContent;
-                select.value = optionDiv.dataset.value;
-
-                // Trigger change event to ensure form validation/state catch the update if needed
-                select.dispatchEvent(new Event('change'));
-
-                optionsContainer.querySelectorAll('.custom-option').forEach(opt => opt.classList.remove('selected'));
-                optionDiv.classList.add('selected');
-                wrapper.classList.remove('open');
-            });
-
-            optionsContainer.appendChild(optionDiv);
-        });
-
-        trigger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            document.querySelectorAll('.custom-select-container').forEach(container => {
-                if (container !== wrapper) {
-                    container.classList.remove('open');
-                }
-            });
-            wrapper.classList.toggle('open');
-        });
-    });
-
-    // Close dropdowns when clicking outside
-    document.addEventListener('click', () => {
-        document.querySelectorAll('.custom-select-container').forEach(container => {
-            container.classList.remove('open');
-        });
-    });
-
-
+    // ==========================================
+    // 4. Dynamic Typewriter Effect
+    // ==========================================
     const typeWriterEl = document.getElementById('typewriter');
     if (typeWriterEl) {
         const roles = [
-            "Hey, welcome in."
+            "Electronic & Computer Graduate"
         ];
 
         let roleIndex = 0;
@@ -211,69 +108,96 @@ document.addEventListener('DOMContentLoaded', () => {
                 charIndex++;
             }
 
-            // Faster when deleting, slightly random when typing
-            let typeSpeed = isDeleting ? 40 : Math.random() * 50 + 50;
+            let typeSpeed = isDeleting ? 35 : Math.random() * 45 + 55;
 
             if (!isDeleting && charIndex === currentRole.length) {
-                // Pause at the end of the full phrase
-                typeSpeed = 2000;
+                // Pause at end of phrase
+                typeSpeed = 3000;
                 isDeleting = true;
             } else if (isDeleting && charIndex === 0) {
-                // Move to next word when completely deleted
+                // Restart typing loop
                 isDeleting = false;
                 roleIndex = (roleIndex + 1) % roles.length;
-                typeSpeed = 500; // Small pause before new word starts
+                typeSpeed = 600;
             }
 
             setTimeout(typeWriter, typeSpeed);
         }
 
-        // Start typing loop after slightly longer delay
-        setTimeout(typeWriter, 1000);
+        setTimeout(typeWriter, 800);
     }
 
-    // --- Magnetic Buttons ---
-    const magneticBtns = document.querySelectorAll('.magnetic-btn');
-    magneticBtns.forEach(btn => {
-        const text = btn.querySelector('.text');
+    // ==========================================
+    // 5. Smooth Scrolling for Anchor Links
+    // ==========================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
 
-        btn.addEventListener('mousemove', (e) => {
-            const rect = btn.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                const navHeight = navbar ? navbar.offsetHeight : 70;
+                const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - navHeight;
 
-            // Move text slightly towards mouse
-            text.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-        });
-
-        btn.addEventListener('mouseleave', () => {
-            // Reset text position
-            text.style.transform = 'translate(0px, 0px)';
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
+    // ==========================================
+    // 7. Contact Form Submission (FormSubmit AJAX)
+    // ==========================================
+    const form = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    const submitBtn = form ? form.querySelector('.contact-submit-btn') : null;
 
+    if (form && submitBtn && formStatus) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
+            const originalBtnHtml = submitBtn.innerHTML;
+            submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
 
-    // --- Project Filter Buttons ---
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const filterCards = document.querySelectorAll('.project-card');
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Update active button
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+            try {
+                const response = await fetch("https://formsubmit.co/ajax/7c8ea1d906c0c1d243cabf44a55c1d92", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
 
-            const filter = btn.dataset.filter;
-
-            filterCards.forEach(card => {
-                if (filter === 'all' || card.dataset.category === filter) {
-                    card.classList.remove('hidden-by-filter');
+                if (response.ok) {
+                    formStatus.textContent = '✓ Message sent! Thank you for reaching out — I will get back to you shortly.';
+                    formStatus.style.color = '#38bdf8';
+                    form.reset();
                 } else {
-                    card.classList.add('hidden-by-filter');
+                    formStatus.textContent = '⚠ Unable to send message right now. Please try again or reach out on LinkedIn.';
+                    formStatus.style.color = '#f87171';
                 }
-            });
+            } catch (error) {
+                formStatus.textContent = '⚠ An error occurred. Please try again or reach out via LinkedIn/GitHub.';
+                formStatus.style.color = '#f87171';
+            } finally {
+                submitBtn.innerHTML = originalBtnHtml;
+                submitBtn.disabled = false;
+
+                setTimeout(() => {
+                    formStatus.textContent = '';
+                }, 6000);
+            }
         });
-    });
+    }
+
 });

@@ -4,48 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Selamat</title>
+    <title>Selamat | Digital Portfolio</title>
     <meta name="description"
-        content="Personal portfolio of Selamat, a passionate Prompt Engineer, Software Engineer, and aspiring Game Developer.">
+        content="Personal portfolio of Selamat — Electronic & Computer Engineering graduate, Software Engineer, and Founder of Hiok Digital. Building high-performance web applications, digital tools, and scalable software.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://selamat.dev/">
-    <meta property="og:title" content="Portfolio | Selamat">
+    <meta property="og:title" content="Selamat | Digital Portfolio">
     <meta property="og:description"
-        content="Personal portfolio of Selamat, a passionate Prompt Engineer, Software Engineer, and aspiring Game Developer.">
+        content="Personal portfolio of Selamat — Electronic & Computer Engineering graduate, Software Engineer, and Founder of Hiok Digital.">
     <meta property="og:image" content="https://selamat.dev/assets/favicon.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://selamat.dev/">
-    <meta property="twitter:title" content="Portfolio | Selamat">
+    <meta property="twitter:title" content="Selamat | Digital Portfolio">
     <meta property="twitter:description"
-        content="Personal portfolio of Selamat, a passionate Prompt Engineer, Software Engineer, and aspiring Game Developer.">
+        content="Personal portfolio of Selamat — Electronic & Computer Engineering graduate, Software Engineer, and Founder of Hiok Digital.">
     <meta property="twitter:image" content="https://selamat.dev/assets/favicon.png">
+
     <link rel="icon" type="image/png" href="assets/favicon.png">
-    <!-- Google Fonts -->
+
+    <!-- Typography: Fontshare General Sans + Google Fonts Inter -->
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="stylesheet" href="style.css?v=5">
 </head>
 
 <body>
+    <!-- ==========================================
+         NAVIGATION BAR
+         ========================================== -->
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="#" class="logo">S<span>.</span></a>
+            <a href="#" class="logo">Selamat.</a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact" class="btn btn-primary">Contact</a></li>
+                <li><a href="#contact" class="btn btn-primary btn-sm">Contact</a></li>
             </ul>
             <div class="nav-controls">
-                <div class="hamburger" aria-label="Open mobile menu">
-                    <span class="bar"></span>
+                <div class="hamburger" aria-label="Toggle navigation menu">
                     <span class="bar"></span>
                     <span class="bar"></span>
                 </div>
@@ -53,242 +59,451 @@
         </div>
     </nav>
 
+    <!-- ==========================================
+         HERO SECTION
+         ========================================== -->
     <header class="hero" id="home">
         <div class="container hero-container">
             <div class="hero-content hidden">
                 <h1 class="hero-title">Selamat.</h1>
-                <h2 class="hero-title-secondary"><span id="typewriter"></span><span class="cursor-blink">|</span></h2>
+                <h2 class="hero-title-secondary">
+                    <span id="typewriter"></span><span class="cursor-blink">|</span>
+                </h2>
                 <p class="hero-description">
-                    I'm an Electronic &amp; Computer Engineering graduate with a deep passion for software engineering —
-                    building digital products, designing intuitive interfaces, and turning complex ideas into clean,
-                    functional code.
+                    Electronic &amp; Computer Engineering graduate and Founder of <strong>Hiok Digital</strong>.
+                    I build high-performance web applications, architect scalable software systems, and design
+                    intuitive,
+                    conversion-driven digital interfaces.
                 </p>
                 <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    <a href="#projects" class="btn btn-primary btn-gradient">
+                        Explore Projects <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        Get In Touch
+                    </a>
+                    <a href="https://hiok.digital/" target="_blank" class="hero-agency-pill">
+                        <span class="badge-dot"></span> Founder @ Hiok Digital <i class="fas fa-external-link-alt"></i>
+                    </a>
                 </div>
             </div>
-            <div class="hero-image hidden">
-                <div class="blob-bg"></div>
-            </div>
 
-            <!-- Abstract background element ported from Agency -->
-            <div class="hero-bg-glow"></div>
         </div>
     </header>
 
-
-
-    <section class="about" id="about">
+    <!-- ==========================================
+         ABOUT & BENTO ARSENAL
+         ========================================== -->
+    <section class="about section-padding" id="about">
         <div class="container">
-            <h2 class="section-title hidden">About Me</h2>
-            <div class="about-content hidden">
-                <div class="about-text">
+            <div class="section-header hidden">
+                <h2 class="section-title">About <span>Me</span></h2>
+                <p class="section-desc">
+                    Bridging the intersection of rigorous hardware engineering principles and modern, user-centric
+                    software development.
+                </p>
+            </div>
+
+            <div class="about-bento-grid">
+                <!-- Large Bento Box: Background & Discipline -->
+                <div class="bento-card col-span-2 hidden">
+                    <div class="bento-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Engineering Foundation &amp; Mindset</h3>
                     <p>
-                        Hello! I'm Selamat — an Electronic &amp; Computer Engineering graduate with a strong
-                        foundation across both hardware and software disciplines. My academic journey took me
-                        deep into fields like Microcontroller Applications, Electronic System Design, and Computer
-                        Networking (Cisco Packet Tracer), giving me a solid grounding in how systems work at their core.
+                        I hold an <strong>Electronic &amp; Computer Engineering</strong> degree, which equipped me with
+                        a profound,
+                        first-principles understanding of computation across both silicon and software layers.
                     </p>
                     <p>
-                        On the software side, I work with Mobile Computing (Flutter &amp; Dart), Application
-                        Development &amp; Cloud Services (UWP), Database Design &amp; Application (Python &amp; SQL),
-                        Data Analytics &amp; Machine Learning, and Internet &amp; Web Development — bridging the gap
-                        between low-level engineering and modern software products.
+                        From programming <strong>Microcontrollers</strong>, architecting <strong>Electronic
+                            Systems</strong>, and simulating
+                        enterprise <strong>Computer Networks</strong> (Cisco Packet Tracer), I developed a meticulous
+                        approach to efficiency,
+                        latency optimization, and fault-tolerant architecture.
                     </p>
+                    <ul class="focus-list">
+                        <li><strong>Frontend:</strong> React, Next.js, Modern Semantic HTML5/CSS3, Responsive UI/UX</li>
+                        <li><strong>Backend:</strong> Python, Node.js, SQL Databases, Supabase, Cloud Infrastructure
+                        </li>
+                        <li><strong>Systems:</strong> Microcontroller Applications, IoT Sensors, Cisco Networking</li>
+                    </ul>
+                </div>
+
+                <!-- Bento Box: Technical Focus -->
+                <div class="bento-card hidden">
+                    <div class="bento-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Technical Stack</h3>
+
+                    <div class="skill-category">
+                        <div class="skill-category-title"><i class="fas fa-laptop-code"></i> Web &amp; Applications
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">JavaScript (ES6+)</span>
+                            <span class="tech-tag">HTML5 / CSS3</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Flutter &amp; Dart</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category" style="margin-top: 16px;">
+                        <div class="skill-category-title"><i class="fas fa-server"></i> Backend &amp; Data</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Supabase</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">REST APIs</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category" style="margin-top: 16px;">
+                        <div class="skill-category-title"><i class="fas fa-tools"></i> Tooling &amp; Systems</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Git / GitHub</span>
+                            <span class="tech-tag">Figma</span>
+                            <span class="tech-tag">IoT / Sensors</span>
+                            <span class="tech-tag">Cisco Networking</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="projects" id="projects">
+    <!-- ==========================================
+         FEATURED WORK / PROJECTS
+         ========================================== -->
+    <section class="projects section-padding" id="projects">
         <div class="container">
-            <h2 class="section-title hidden">My Projects</h2>
-
-            <div class="project-filters hidden">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="personal">Personal Project</button>
-                <button class="filter-btn" data-filter="school">School Project</button>
+            <div class="section-header hidden">
+                <h2 class="section-title">Featured <span>Projects</span></h2>
+                <p class="section-desc">
+                    A curated selection of software applications, game utilities, and client solutions engineered with
+                    precision.
+                </p>
             </div>
 
             <div class="projects-grid" id="projects-grid">
                 <!-- Project: FinTracks -->
                 <div class="project-card hidden" data-category="personal">
-                    <div class="project-img">
+                    <div class="project-img-wrapper">
+                        <span class="project-category-badge">Personal Project</span>
                         <img src="assets/case-study-finance.png" loading="lazy"
-                            alt="FinTracks Finance and Trading Journal Dashboard">
+                            alt="FinTracks Finance Tracker & Journals">
                     </div>
                     <div class="project-content">
-                        <h3>FinTracks — Finance Tracker & Journals</h3>
-                        <p class="project-description">A full-stack personal finance tracker with real-time dashboard
-                            analytics, P&L calendar, transaction management — all powered by Supabase.</p>
+                        <h3>FinTracks — Finance Tracker &amp; Journals</h3>
+                        <p class="project-description">
+                            A full-stack personal finance and trading journal dashboard featuring real-time analytics,
+                            P&amp;L calendar visualization, and seamless transaction management backed by Supabase.
+                        </p>
                         <ul class="project-tech">
-                            <li>HTML / CSS / JS</li>
+                            <li>JavaScript</li>
                             <li>Supabase</li>
+                            <li>Data Analytics</li>
                             <li>GitHub Pages</li>
                         </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/Hiokz/finance-tracker" target="_blank"
-                                aria-label="View FinTracks source code on GitHub"><i class="fab fa-github"
-                                    aria-hidden="true"></i></a>
-                            <a href="https://fintracks.me/" target="_blank"
-                                aria-label="View live FinTracks application"><i class="fas fa-external-link-alt"
-                                    aria-hidden="true"></i></a>
+                        <div class="project-footer">
+                            <a href="https://github.com/Hiokz/finance-tracker" target="_blank" class="project-link-btn"
+                                aria-label="View source code">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://fintracks.me/" target="_blank" class="project-link-btn"
+                                aria-label="View live application">
+                                <i class="fas fa-external-link-alt"></i> Live App
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: Hiok Digital -->
+                <div class="project-card hidden" data-category="agency">
+                    <div class="project-img-wrapper">
+                        <span class="project-category-badge agency">Agency Platform</span>
+                        <img src="assets/case-study-agency.png" loading="lazy" alt="Hiok Digital Agency Platform">
+                    </div>
+                    <div class="project-content">
+                        <h3>Hiok Digital — Digital Agency Platform</h3>
+                        <p class="project-description">
+                            The flagship web presence for Hiok Digital. Engineered with a dark glassmorphic Bento UI,
+                            interactive pricing layers, dynamic onboarding funnels, and sub-second page performance.
+                        </p>
+                        <ul class="project-tech">
+                            <li>Bento Architecture</li>
+                            <li>Glassmorphism</li>
+                            <li>Conversion Optimization</li>
+                            <li>Performance</li>
+                        </ul>
+                        <div class="project-footer">
+                            <a href="https://hiok.digital/" target="_blank" class="project-link-btn"
+                                aria-label="Visit Hiok Digital">
+                                <i class="fas fa-external-link-alt"></i> Live Site
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: Arthur Sewu VSL -->
+                <div class="project-card hidden" data-category="agency">
+                    <div class="project-img-wrapper">
+                        <span class="project-category-badge agency">Client Solution</span>
+                        <img src="assets/case-study-arthur.png" loading="lazy"
+                            alt="Arthur Sewu Full Stack Marketer VSL Funnel">
+                    </div>
+                    <div class="project-content">
+                        <h3>Arthur Sewu — VSL Funnel</h3>
+                        <p class="project-description">
+                            High-converting Video Sales Letter onboarding funnel designed to drive qualified founders
+                            directly to booking calls.
+                            Features a distraction-free custom video player and lightning-fast load times.
+                        </p>
+                        <ul class="project-tech">
+                            <li>VSL Funnel</li>
+                            <li>UI/UX Design</li>
+                            <li>CRO Strategy</li>
+                            <li>Custom Player</li>
+                        </ul>
+                        <div class="project-footer">
+                            <a href="https://sewu.org/" target="_blank" class="project-link-btn"
+                                aria-label="Visit live funnel">
+                                <i class="fas fa-external-link-alt"></i> Live Site
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project: PW Gem Calculator -->
                 <div class="project-card hidden" data-category="personal">
-                    <div class="project-img">
+                    <div class="project-img-wrapper">
+                        <span class="project-category-badge">Personal Project</span>
                         <img src="assets/case-study-pw.png" loading="lazy" alt="Pixel World Gem Calculator">
                     </div>
                     <div class="project-content">
                         <h3>PW Gem Calculator | Pixel World</h3>
-                        <p class="project-description">A fan-made web tool for the game Perfect World, designed to help
-                            players calculate gem upgrade costs, compare gem tiers, and plan their in-game progression
-                            efficiently.</p>
+                        <p class="project-description">
+                            An interactive web tool built for Perfect World players to calculate gem upgrade algorithms,
+                            compare tier progressions, and optimize in-game resource investments effectively.
+                        </p>
                         <ul class="project-tech">
-                            <li>HTML / CSS / JS</li>
+                            <li>HTML5 / CSS3</li>
+                            <li>JavaScript ES6</li>
                             <li>Game Tooling</li>
-                            <li>GitHub Pages</li>
+                            <li>Algorithms</li>
                         </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/Hiokz/pwguide" target="_blank"
-                                aria-label="View PW Gem Calculator source code on GitHub"><i class="fab fa-github"
-                                    aria-hidden="true"></i></a>
-                            <a href="https://hiokz.github.io/pwguide/" target="_blank"
-                                aria-label="View live PW Gem Calculator"><i class="fas fa-external-link-alt"
-                                    aria-hidden="true"></i></a>
+                        <div class="project-footer">
+                            <a href="https://github.com/Hiokz/pwguide" target="_blank" class="project-link-btn"
+                                aria-label="View source code">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://hiokz.github.io/pwguide/" target="_blank" class="project-link-btn"
+                                aria-label="View live tool">
+                                <i class="fas fa-external-link-alt"></i> Live App
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project: DimSum -->
+                <!-- Project: DimSum Restaurant -->
                 <div class="project-card hidden" data-category="school">
-                    <div class="project-img">
-                        <img src="assets/case-study-dimsum.png" loading="lazy" alt="DimSum Restaurant Website Mockup">
+                    <div class="project-img-wrapper">
+                        <span class="project-category-badge">Academic Project</span>
+                        <img src="assets/case-study-dimsum.png" loading="lazy" alt="Atta's Delight Dim Sum Restaurant">
                     </div>
                     <div class="project-content">
-                        <h3>Atta's Delight — Dim Sum Resturant</h3>
-                        <p class="project-description">A beautifully crafted, responsive restaurant website designed to
-                            elevate the culinary experience online. Features a dynamic interactive menu, about page, and
-                            elegant reservation/ordering layouts built using semantic HTML5 and custom CSS3.</p>
+                        <h3>Atta's Delight — Dim Sum Restaurant</h3>
+                        <p class="project-description">
+                            A responsive restaurant web platform designed to elevate the culinary ordering experience
+                            online.
+                            Features interactive digital menus, reservation layouts, and mobile-first navigation.
+                        </p>
                         <ul class="project-tech">
-                            <li>HTML5</li>
-                            <li>CSS3 / Responsive</li>
-                            <li>Web Design</li>
+                            <li>HTML5 / CSS3</li>
+                            <li>Responsive Design</li>
+                            <li>UI/UX Architecture</li>
                         </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/Hiokz/dimsum" target="_blank"
-                                aria-label="View DimSum source code on GitHub"><i class="fab fa-github"
-                                    aria-hidden="true"></i></a>
-                            <a href="https://hiokz.github.io/dimsum/" target="_blank"
-                                aria-label="View live DimSum website"><i class="fas fa-external-link-alt"
-                                    aria-hidden="true"></i></a>
+                        <div class="project-footer">
+                            <a href="https://github.com/Hiokz/dimsum" target="_blank" class="project-link-btn"
+                                aria-label="View source code">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://hiokz.github.io/dimsum/" target="_blank" class="project-link-btn"
+                                aria-label="View live website">
+                                <i class="fas fa-external-link-alt"></i> Live Site
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project: Sproutify -->
                 <div class="project-card hidden" data-category="school">
-                    <div class="project-img">
+                    <div class="project-img-wrapper">
+                        <span class="project-category-badge">Academic Project</span>
                         <img src="assets/case-study-sproutify.png" loading="lazy" alt="Sproutify IoT Smart Gardening">
                     </div>
                     <div class="project-content">
-                        <h3>Sproutify — IoT Revolutionizing Smart Gardening</h3>
-                        <p class="project-description">An innovative IoT-based smart gardening system that monitors soil
-                            moisture, temperature, and light levels in real-time. Features an intuitive dashboard for
-                            plant enthusiasts to track their garden's health and automate care routines seamlessly.</p>
+                        <h3>Sproutify — IoT Smart Gardening</h3>
+                        <p class="project-description">
+                            An innovative IoT-based smart gardening system that monitors soil moisture, ambient
+                            temperature,
+                            and light intensity in real-time with an intuitive dashboard for automated plant care.
+                        </p>
                         <ul class="project-tech">
-                            <li>IoT</li>
+                            <li>IoT Integration</li>
+                            <li>Hardware Sensors</li>
                             <li>Web Dashboard</li>
-                            <li>Smart Automation</li>
+                            <li>Automation</li>
                         </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/Hiokz/sproutify" target="_blank"
-                                aria-label="View Sproutify source code on GitHub"><i class="fab fa-github"
-                                    aria-hidden="true"></i></a>
-                            <a href="https://hiokz.github.io/sproutify/" target="_blank"
-                                aria-label="View live Sproutify website"><i class="fas fa-external-link-alt"
-                                    aria-hidden="true"></i></a>
+                        <div class="project-footer">
+                            <a href="https://github.com/Hiokz/sproutify" target="_blank" class="project-link-btn"
+                                aria-label="View source code">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://hiokz.github.io/sproutify/" target="_blank" class="project-link-btn"
+                                aria-label="View live dashboard">
+                                <i class="fas fa-external-link-alt"></i> Live App
+                            </a>
                         </div>
                     </div>
                 </div>
 
-
                 <!-- Project: Healthub -->
                 <div class="project-card hidden" data-category="school">
-                    <div class="project-img">
+                    <div class="project-img-wrapper">
+                        <span class="project-category-badge">Academic Project</span>
                         <img src="assets/case-study-hospital.png" loading="lazy"
                             alt="Healthub Hospital Management System">
                     </div>
                     <div class="project-content">
                         <h3>Healthub — Hospital Management System</h3>
-                        <p class="project-description">A comprehensive terminal-based Hospital Appointment and Patient
-                            Management System designed to streamline operations from patient registration to medical
-                            billing. Developed with a robust, normalized relational database that enforces referential
-                            integrity and secure access controls.</p>
+                        <p class="project-description">
+                            A terminal-based hospital appointment and patient data management system engineered with
+                            normalized relational database schema enforcement, role-based access, and medical record
+                            indexing.
+                        </p>
                         <ul class="project-tech">
                             <li>Python</li>
-                            <li>SQL</li>
-                            <li>Relational Database</li>
+                            <li>SQL Database</li>
+                            <li>Relational Schema</li>
+                            <li>Data Architecture</li>
                         </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/Hiokz/hospital" target="_blank"
-                                aria-label="View Healthub source code on GitHub"><i class="fab fa-github"
-                                    aria-hidden="true"></i></a>
+                        <div class="project-footer">
+                            <a href="https://github.com/Hiokz/hospital" target="_blank" class="project-link-btn"
+                                aria-label="View source code">
+                                <i class="fab fa-github"></i> Code
+                            </a>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <section class="contact" id="contact">
+    <!-- ==========================================
+         CONTACT / COLLABORATION SECTION
+         ========================================== -->
+    <section class="contact section-padding" id="contact">
         <div class="container">
-            <h2 class="section-title center hidden">Collaboration & Opportunities</h2>
-            <p class="contact-desc hidden">I'm always open to new collaborations, exciting opportunities, and meaningful
-                conversations. Whether it's a project, an idea, or just a hello — feel free to reach out!
-            </p>
-            <div class="contact-form-container hidden">
+            <div class="section-header hidden">
+                <h2 class="section-title">Let's <span>Connect</span></h2>
+                <p class="section-desc">
+                    Whether you have an exciting software engineering role, want to collaborate on a digital product,
+                    or need digital solutions through Hiok Digital — feel free to reach out.
+                </p>
+            </div>
+
+            <div class="contact-card-container hidden">
                 <form id="contact-form" class="contact-form"
                     action="https://formsubmit.co/7c8ea1d906c0c1d243cabf44a55c1d92" method="POST">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Name" required>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" placeholder="e.g. Alex Chen" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="e.g. alex@example.com" required>
+                        </div>
                     </div>
+
                     <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Email" required>
+                        <label for="inquiry-type">Topic of Interest</label>
+                        <input type="text" id="inquiry-type" name="topic"
+                            placeholder="e.g. Full-Stack Role / Project Collaboration / General Inquiry">
                     </div>
+
                     <div class="form-group">
-                        <textarea id="message" name="message" rows="5" placeholder="Message" required></textarea>
+                        <label for="message">Your Message *</label>
+                        <textarea id="message" name="message" rows="5"
+                            placeholder="Tell me about your project, timeline, or inquiry..." required></textarea>
                     </div>
-                    <!-- FormSubmit specific inputs to prevent captcha and redirect -->
+
+                    <!-- FormSubmit Hidden Configuration -->
                     <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_subject" value="New message from Portfolio!">
-                    <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+                    <input type="hidden" name="_subject" value="New Inquiry from Selamat.dev Portfolio!">
+
+                    <button type="submit" class="btn btn-primary btn-gradient contact-submit-btn">
+                        Send Message <i class="fas fa-paper-plane"></i>
+                    </button>
                     <div class="form-status" id="form-status"></div>
                 </form>
+
+                <!-- Quick Connect Links -->
+                <div class="contact-social-strip">
+                    <a href="https://github.com/Hiokz" target="_blank" class="contact-social-link">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://sg.linkedin.com/in/chan-jia-wei-selamat-386698310" target="_blank"
+                        class="contact-social-link">
+                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                    </a>
+                    <a href="https://hiok.digital/" target="_blank" class="contact-social-link">
+                        <i class="fas fa-globe"></i> Hiok Digital
+                    </a>
+                    <a href="https://www.instagram.com/sxlamat/?hl=en" target="_blank" class="contact-social-link">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
     <footer>
         <div class="container footer-container">
-            <div class="social-links">
-                <a href="https://github.com/Hiokz" target="_blank" aria-label="Visit my GitHub profile"><i
-                        class="fab fa-github" aria-hidden="true"></i></a>
-                <a href="https://sg.linkedin.com/in/chan-jia-wei-selamat-386698310" target="_blank"
-                    aria-label="Connect with me on LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                <a href="https://www.instagram.com/sxlamat/?hl=en" target="_blank"
-                    aria-label="Follow me on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <div class="footer-logo">Selamat</div>
+            <div class="footer-nav">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
             </div>
-            <p>Designed & Built by Selamat</p>
+            <div class="social-links">
+                <a href="https://github.com/Hiokz" target="_blank" aria-label="Visit my GitHub profile">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+                <a href="https://sg.linkedin.com/in/chan-jia-wei-selamat-386698310" target="_blank"
+                    aria-label="Connect with me on LinkedIn">
+                    <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                </a>
+                <a href="https://hiok.digital/" target="_blank" aria-label="Visit Hiok Digital Agency">
+                    <i class="fas fa-globe" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.instagram.com/sxlamat/?hl=en" target="_blank" aria-label="Follow me on Instagram">
+                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                </a>
+            </div>
+            <p class="footer-bottom">&copy; 2026 Selamat. All rights reserved. &bull; Founder of Hiok Digital</p>
         </div>
     </footer>
 
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
 </body>
 
 </html>
