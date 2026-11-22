@@ -378,7 +378,7 @@ img {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: calc(var(--nav-height) + 60px) 0 100px;
+    padding: calc(var(--nav-height) + 60px) 0 30px;
     overflow: hidden;
 }
 
