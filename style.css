@@ -1071,10 +1071,28 @@ footer {
         padding: 6px 0;
     }
 
-    .nav-links .btn {
+    .nav-links li a.btn {
+        background: transparent;
+        color: var(--text-muted);
+        box-shadow: none;
+        padding: 6px 0;
+        margin: 0;
+        border-radius: 0;
+        border: none;
+        font-size: 16px;
+        font-weight: 500;
+        display: block;
         width: 100%;
-        margin-left: 0;
-        margin-top: 10px;
+        transform: none;
+        text-align: left;
+        line-height: inherit;
+    }
+
+    .nav-links li a.btn:hover {
+        background: transparent;
+        color: var(--text-primary);
+        box-shadow: none;
+        transform: none;
     }
 
     .hero-title {
